@@ -1,0 +1,8 @@
+jupyterlab
+numpy
+pandas
+black
+autopep8
+YAPF
+Isort
+jupyterlab_code_formatter
