@@ -75,5 +75,11 @@ For example, add hot key for `autopep8`:
 }
 ```
 
+# Bug
 
+For the ARM kernel system, if you try to install `matplotlib` using `pip`, please execute the following command in the terminal first.
+
+```
+apt-get install pkg-config
+```
 
