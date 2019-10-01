@@ -6,7 +6,7 @@ For more details,
 
 Github: [link](https://github.com/SilvesterHsu/jupyterlab)
 
-Docker: [link]()
+Docker: [link](https://cloud.docker.com/repository/docker/silvesterhsu/jupyterlab)
 
 # How to run it?
 
@@ -26,7 +26,7 @@ Use the `token` to setup a password when you open the browser `127.0.0.1:8888`.
 
 Once the password is set and successfully logged in, jupyterLab completes the password configuration. You need to terminate and restart the lab container in the terminal.
 
-Use `control+C` to stop the jupyterlab container, or start a new terminal:
+Use `control+C` to stop the jupyterlab container, or start a new terminal:
 
 ```
 docker restart lab
