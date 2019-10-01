@@ -83,3 +83,9 @@ For the ARM kernel system, if you try to install `matplotlib` using `pip`, pleas
 apt-get install pkg-config
 ```
 
+As for `scipy`:
+
+```
+apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
+```
+
