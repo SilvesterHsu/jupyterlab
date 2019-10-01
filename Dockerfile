@@ -5,14 +5,28 @@ RUN apt update; apt-get install nodejs npm -y
 
 # jupyter lab
 COPY requirements.txt /root/
-RUN pip install -r /root/requirements.txt && \
-    jupyter lab --generate-config && \
-    jupyter labextension install @jupyterlab/toc && \
-    jupyter labextension install @lckr/jupyterlab_variableinspector && \
-    jupyter labextension install @krassowski/jupyterlab_go_to_definition && \
-    jupyter labextension install @ryantam626/jupyterlab_code_formatter && \
+RUN pip install -r /root/requirements.txt
+
+# extension
+COPY extensions /root/
+RUN jupyter lab --generate-config && \
+    cd /root/jupyterlab-toc && \
+    jlpm install && \
+    jlpm run build && \
+    jupyter labextension install . && \
+    cd /root/jupyterlab_code_formatter && \
+    npm install && \
+    npm run build && \
+    jupyter labextension link . && \
+    pip install -e . && \
     jupyter serverextension enable --py jupyterlab_code_formatter && \
-    jupyter labextension install @ryantam626/jupyterlab_sublime
+    cd /root/jupyterlab_sublime && \
+    npm install && \
+    npm run build && \
+    jupyter labextension link . && \
+    cd  /root && \
+    jupyter labextension install @lckr/jupyterlab_variableinspector && \
+    jupyter labextension install @krassowski/jupyterlab_go_to_definition
 
 RUN mkdir /notebooks
 WORKDIR "/notebooks"
